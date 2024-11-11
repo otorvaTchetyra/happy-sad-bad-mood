@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настроение AI</title>
+    <script>
+        function getPhrase(mood) {
+            fetch(`/get_phrase/${mood}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('phrase').innerText = data.phrase;
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Искусственный Интеллект по настроению</h1>
+    <button onclick="getPhrase('happy')">Счастливое настроение</button>
+    <button onclick="getPhrase('sad')">Грустное настроение</button>
+    <button onclick="getPhrase('angry')">Злое настроение</button>
+    <p id="phrase"></p>
+</body>
+</html>
+
